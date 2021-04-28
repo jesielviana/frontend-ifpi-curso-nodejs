@@ -36,7 +36,7 @@ function preencheTela (cursos) {
   cursos.forEach(curso => {
     const novoCursoHTML = `
     <div class="curso">
-    <h3>${curso.nome}</h3>
+    <h3>${curso.name}</h3>
     <p>Carga horária: ${curso.ch} horas</p>
   </div>
     `
