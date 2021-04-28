@@ -14,8 +14,8 @@ async function getCourses () {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         Authorization: localStorage.getItem('token')
-      },
-      credentials: 'include'
+      }
+      // credentials: 'include'
     })
     if (retorno.status === 200) {
       const cursos = await retorno.json()
