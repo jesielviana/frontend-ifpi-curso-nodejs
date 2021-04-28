@@ -1,0 +1,55 @@
+body{
+  width: 500px;
+  margin: 20px auto;
+  padding: 5px 50px;
+}
+
+h2{
+  text-align: center;
+}
+
+.curso{
+  padding: 10px 10px 0 10px;
+  border-bottom:1px dashed #eee;
+}
+
+.btn-login{
+  position: fixed;
+  right: 5rem;
+  top: 5rem;
+  background-color: green;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+
+input, textarea{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border:1px solid #ccc;
+}
+
+button{
+  padding: 10px;
+  font-size: 1.2em;
+  background-color: green;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  float: right;
+}
+
+.msg{
+  padding: 2px 10px;
+  width: 100%;
+  border-radius: 5px;
+  margin: 10px 0;
+}
