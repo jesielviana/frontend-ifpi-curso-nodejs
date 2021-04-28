@@ -20,6 +20,7 @@ async function sendDataToAPI (login) {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify(login)
   })
   if (resposta.status === 200) {
