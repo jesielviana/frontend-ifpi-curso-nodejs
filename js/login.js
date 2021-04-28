@@ -1,5 +1,5 @@
-/* global fetch */
-// Captura o click do botão salvar
+/* global localStorage fetch */
+
 const btn = document.getElementById('login')
 btn.onclick = () => {
   const login = getDataFromForm()
@@ -14,7 +14,7 @@ function getDataFromForm () {
 }
 // Enviar os dados para a API
 async function sendDataToAPI (login) {
-  const resposta = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/auth/login', {
+  const response = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/auth/login', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -23,9 +23,9 @@ async function sendDataToAPI (login) {
     // credentials: 'include',
     body: JSON.stringify(login)
   })
-  if (resposta.status === 200) {
-    limpaDadosFormulario()
-    const data = await resposta.json()
+  if (response.status === 200) {
+    clearForm()
+    const data = await response.json()
     const { user, token } = data
     console.log('user', user)
     localStorage.setItem('user', JSON.stringify(user))
@@ -38,7 +38,7 @@ async function sendDataToAPI (login) {
   }
 }
 
-function limpaDadosFormulario () {
+function clearForm () {
   document.querySelector('#email').value = ''
   document.querySelector('#password').value = ''
 }

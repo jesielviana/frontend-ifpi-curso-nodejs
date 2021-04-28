@@ -1,4 +1,6 @@
-const divCursos = document.querySelector('#cursos')
+/* global localStorage fetch */
+
+const divCourses = document.querySelector('#courses')
 
 function loadUser () {
   const devUser = document.querySelector('.user')
@@ -9,7 +11,7 @@ function loadUser () {
 
 async function getCourses () {
   try {
-    const retorno = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/courses', {
+    const response = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/courses', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -17,30 +19,29 @@ async function getCourses () {
       }
       // credentials: 'include'
     })
-    if (retorno.status === 200) {
-      const cursos = await retorno.json()
-      preencheTela(cursos)
-    } else if (retorno.status === 401) {
-      console.log('usuário não autenticado')
+    if (response.status === 200) {
+      const courses = await response.json()
+      fillPage(courses)
+    } else if (response.status === 401) {
+      console.log('User not authenticated')
     }
   } catch (e) {
     console.log(e)
   }
 }
 
-function preencheTela (cursos) {
-  if (!cursos) {
-    console.log('cursos', cursos)
+function fillPage (courses) {
+  if (!courses) {
     return
   }
-  cursos.forEach(curso => {
-    const novoCursoHTML = `
-    <div class="curso">
-    <h3>${curso.name}</h3>
-    <p>Carga horária: ${curso.ch} horas</p>
+  courses.forEach(course => {
+    const courseHTML = `
+    <div class="course">
+    <h3>${course.name}</h3>
+    <p>Carga horária: ${course.ch} horas</p>
   </div>
     `
-    divCursos.innerHTML = divCursos.innerHTML + novoCursoHTML
+    divCourses.innerHTML = divCourses.innerHTML + courseHTML
   })
 }
 
