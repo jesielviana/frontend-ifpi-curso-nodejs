@@ -29,14 +29,17 @@ async function getCourses () {
       fillPage(courses)
     } else {
       console.log(response.status)
-      localStorage.removeItem('user')
-      localStorage.removeItem('token')
+      clearLocalStorage()
     }
   } catch (e) {
-    localStorage.removeItem('user')
-    localStorage.removeItem('token')
+    clearLocalStorage();
     console.log(e)
   }
+}
+
+function clearLocalStorage () {
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
 }
 
 function fillPage (courses) {
