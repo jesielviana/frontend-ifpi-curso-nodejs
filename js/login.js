@@ -1,4 +1,9 @@
 /* global localStorage fetch */
+const LOCAL_API_URL = 'http://localhost:3000/api'
+const REMOTE_API_URL = 'https://ifpi-curso-nodejs-api.herokuapp.com/api'
+const HOST = window.location.host;
+const API_URL = HOST.includes('netlify.app') ? REMOTE_API_URL : LOCAL_API_URL
+
 
 const btn = document.getElementById('login')
 btn.onclick = () => {
@@ -14,7 +19,7 @@ function getDataFromForm () {
 }
 // Enviar os dados para a API
 async function sendDataToAPI (login) {
-  const response = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/auth/login', {
+  const response = await fetch(`${API_URL}/auth/signin`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

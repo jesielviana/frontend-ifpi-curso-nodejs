@@ -1,17 +1,22 @@
 /* global localStorage fetch */
+const LOCAL_API_URL = 'http://localhost:3000/api'
+const REMOTE_API_URL = 'https://ifpi-curso-nodejs-api.herokuapp.com/api'
+const HOST = window.location.host;
+const API_URL = HOST.includes('netlify.app') ? REMOTE_API_URL : LOCAL_API_URL
 
 const divCourses = document.querySelector('#courses')
 
 function loadUser () {
   const devUser = document.querySelector('.user')
   const user = localStorage.getItem('user') != null ? JSON.parse(localStorage.getItem('user')) : {}
-  const userHTML = `<p>${user.name}</p>`
+  const userHTML = `<p>${user.name ? user.name : 'Faça login!'}</p>`
   devUser.innerHTML = userHTML
 }
 
 async function getCourses () {
+  document.get
   try {
-    const response = await fetch('https://ifpi-curso-nodejs-api.herokuapp.com/api/courses', {
+    const response = await fetch(`${API_URL}/courses`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -26,6 +31,8 @@ async function getCourses () {
       console.log('User not authenticated')
     }
   } catch (e) {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
     console.log(e)
   }
 }
