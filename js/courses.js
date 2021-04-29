@@ -27,8 +27,10 @@ async function getCourses () {
     if (response.status === 200) {
       const courses = await response.json()
       fillPage(courses)
-    } else if (response.status === 401) {
-      console.log('User not authenticated')
+    } else {
+      console.log(response.status)
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
     }
   } catch (e) {
     localStorage.removeItem('user')
