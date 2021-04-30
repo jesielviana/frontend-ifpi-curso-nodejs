@@ -1,7 +1,7 @@
 /* global localStorage fetch */
 const LOCAL_API_URL = 'http://localhost:3000/api'
 const REMOTE_API_URL = 'https://ifpi-curso-nodejs-api.herokuapp.com/api'
-const HOST = window.location.host;
+const HOST = window.location.host
 const API_URL = HOST.includes('netlify.app') ? REMOTE_API_URL : LOCAL_API_URL
 
 const divCourses = document.querySelector('#courses')
@@ -14,7 +14,6 @@ function loadUser () {
 }
 
 async function getCourses () {
-  document.get
   try {
     const response = await fetch(`${API_URL}/courses`, {
       headers: {
@@ -32,14 +31,14 @@ async function getCourses () {
       clearLocalStorage()
     }
   } catch (e) {
-    clearLocalStorage();
+    clearLocalStorage()
     console.log(e)
   }
 }
 
 function clearLocalStorage () {
-  localStorage.removeItem('user');
-  localStorage.removeItem('token');
+  localStorage.removeItem('user')
+  localStorage.removeItem('token')
 }
 
 function fillPage (courses) {
