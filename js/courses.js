@@ -19,19 +19,19 @@ async function getCourses () {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('token')
-      }
-      // credentials: 'include'
+        // Authorization: localStorage.getItem('token')
+      },
+      credentials: 'include'
     })
     if (response.status === 200) {
       const courses = await response.json()
       fillPage(courses)
     } else {
       console.log(response.status)
-      clearLocalStorage()
+      // clearLocalStorage()
     }
   } catch (e) {
-    clearLocalStorage()
+    // clearLocalStorage()
     console.log(e)
   }
 }

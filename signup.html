@@ -4,25 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 
 <body>
   <nav>
     <a href="index.html">Home</a>
-    <a href="signup.html">Cadastro</a>
   </nav>
   <div class="user">
   </div>
-  <h2>Login</h2>
+  <h2>Novo Usuário</h2>
   <div class="msg"></div>
   <form>
+    Nome: <input id="name" type="text" required>
+    <br> <br>
     Email: <input id="email" type="text" required>
     <br> <br>
     Senha: <input id="password" type="text" required>
     <br> <br>
-    <button type="button" id="login">Login</button>
+    <button type="button" id="signup">Cadastrar</button>
   </form>
   <script src="js/user.js"></script>
 </body>
