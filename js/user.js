@@ -53,7 +53,7 @@ async function sendDataToAPILogin (login) {
     divMsg.style.backgroundColor = 'green'
     divMsg.style.color = 'white'
     divMsg.innerHTML = '<p>Login realizado com sucesso!</p>'
-    // window.location.href = '/index.html'
+    window.location.href = '/index.html'
   }
 }
 
